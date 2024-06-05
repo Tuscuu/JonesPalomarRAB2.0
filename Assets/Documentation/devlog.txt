@@ -1,0 +1,11 @@
+Ideas: Have an enemy chase player. Modify jump mechanic for overcoming obstacles
+
+5/21 	AJ started game song
+	Bryson set up github repo
+	created github team 
+
+5/22 	AJ initiated Unity project and started documenting (devlog.txt in assets folder)
+	Bryson edited player code for better usability
+	Bryson researched avoiding merging errors
+	AJ added Probuilder
+	AJ started level 1 prefab
