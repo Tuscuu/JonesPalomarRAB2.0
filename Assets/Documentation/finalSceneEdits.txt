@@ -1,0 +1,8 @@
+Final Scene Edits
+
+1. Remove music players from all scenes but main menu
+2. Attach music audio source and script to main menu
+4. Set audio source to "play upon awake" and also "loop"
+
+5. Fix the pickup audio source
+6. Determine how to win the 2nd level 
