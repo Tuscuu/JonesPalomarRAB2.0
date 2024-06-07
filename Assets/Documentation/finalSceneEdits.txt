@@ -1,10 +1,14 @@
 Final Scene Edits
 
-1. Remove music players from all scenes but main menu
-2. Attach music audio source and script to main menu
+1. Add TimeKeeper to MainMenu only 
+2. Remove music players from all scenes but main menu
+3. Attach music audio source and script to main menu
 4. Set audio source to "play upon awake" and also "loop"
 
-5. Fix the pickup audio source
+5. Fix the pickup audio source (I think just add audio source to player)
 6. Determine how to win the 2nd level 
 
-need to connect PlayerController.EndLevel() and TimeKeeper.OpenWINLevel()
+7. add UIController to WIN scene
+8. connect WIN timer texts to UIController 
+
+need to connect PlayerController.EndLevel() to whenever it ends
