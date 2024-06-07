@@ -17,8 +17,13 @@ public class UIController : MonoBehaviour {
         Application.Quit();
     }
 
-    public void OnClickStartButton(){
-        SceneManager.LoadScene("LevelOne");
+    public void NextLevel(){
+        if (SceneManager.GetActiveScene().name == "MainMenu"){
+            SceneManager.LoadScene("LevelOne");
+        } else if (SceneManager.GetActiveScene().name == "LevelOne"){
+            SceneManager.LoadScene("LevelTwo");
+        } 
+        
     }
 
     public void Start(){
