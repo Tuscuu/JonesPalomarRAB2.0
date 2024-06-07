@@ -23,13 +23,13 @@ public class PlayerController : MonoBehaviour
     private int count;
     private bool gameOver; //  bool to define game state on or off.
     string currentSceneName;
+    private float timer;
 
     // Audio
     public AudioClip coinSFX;
     private AudioSource audioSource;
     public CameraController cameraCon;
     public bool playerInZone1 = false;
-    public Camera camera;
     public AudioClip explosion; 
     public GameObject destroyableMachine;
     public GameObject destroyableSmoke;
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         if (gameOver) // condition that the game is NOT over; returns the false value
             return;
-        float timer = Time.time - startingTime;     // local variable to updated time
+        timer = Time.time - startingTime;     // local variable to updated time
         min = ((int)timer / 60).ToString();     // calculates minutes
         sec = (timer % 60).ToString("f0");      // calculates seconds
 
@@ -202,5 +202,17 @@ public class PlayerController : MonoBehaviour
 
     void RestartLevel(){
         SceneManager.LoadScene(currentSceneName);
+    }
+
+    void EndLevel(){
+
+        //update TimeKeeper variables
+        
+        if (SceneManager.GetActiveScene().name == "LevelOne"){
+            TimeKeeper.instance.level1Time = timer;
+        } else if (SceneManager.GetActiveScene().name == "LevelTwo"){
+            TimeKeeper.instance.level2Time = timer;
+            TimeKeeper.instance.totalTime = TimeKeeper.instance.level1Time + TimeKeeper.instance.level2Time;
+        }
     }
 }
