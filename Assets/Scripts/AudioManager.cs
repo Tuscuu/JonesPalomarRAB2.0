@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     static AudioManager instance;
 
+
+
     void Awake() {
         if (instance == null){
             instance = this;
@@ -17,12 +19,35 @@ public class AudioManager : MonoBehaviour
     }
 
     void Update(){                      //testing between scenes; quick switch 
-        if (Input.GetKeyDown("1")){
+        
+        if (Input.GetKeyDown("0")){
+            SceneManager.LoadScene("MainMenu");
+            endTimers();
+        }
+        else if (Input.GetKeyDown("1")){
             SceneManager.LoadScene("LevelOne");
+            endTimers();
         }
 
         else if (Input.GetKeyDown("2")){
             SceneManager.LoadScene("LevelTwo");
+            endTimers();
+        }
+        else if (Input.GetKeyDown("3")){
+            SceneManager.LoadScene("WIN");
+            endTimers();
+        }
+        else if (Input.GetKeyDown("4")){
+            SceneManager.LoadScene("HELP");
+            endTimers();
+        }
+    }
+
+    public void endTimers(){
+        if (SceneManager.GetActiveScene().name == "LevelOne"){
+            TimeKeeper.instance.Level1Done();
+        } else if (SceneManager.GetActiveScene().name == "LevelTwo"){
+            TimeKeeper.instance.Level2Done();
         }
     }
 

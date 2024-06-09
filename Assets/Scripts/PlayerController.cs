@@ -14,16 +14,16 @@ public class PlayerController : MonoBehaviour
     public TMP_Text countText;
     public TMP_Text winText;
     public TMP_Text timeText;  //  variable to display the timer text in Unity
-    public float startingTime;  // variable to hold the game's starting time
-    public string min;
-    public string sec;
+    //public float startingTime;  // variable to hold the game's starting time
+    //public string min;
+    //public string sec;
 
     //These private variables are initialized in the Start
     private Rigidbody rb;
     private int count;
     private bool gameOver; //  bool to define game state on or off.
     string currentSceneName;
-    private float timer;
+    //private float timer;
 
     // Audio
     public AudioClip coinSFX;
@@ -41,22 +41,40 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
         winText.text = "";
-        startingTime = Time.time;
         gameOver = false;
 
         audioSource = GetComponent<AudioSource>();  // access the audio source component of player
 
+        if (SceneManager.GetActiveScene().name == "LevelOne"){
+            TimeKeeper.instance.startingTime1 = Time.time;
+            TimeKeeper.instance.level1 = true;
+        } else if (SceneManager.GetActiveScene().name == "LevelTwo"){
+            TimeKeeper.instance.startingTime2 = Time.time;
+            TimeKeeper.instance.level2 = true;
+        }
+
+
     }
+            
     private void Update()
     {
         if (gameOver) // condition that the game is NOT over; returns the false value
             return;
-        timer = Time.time - startingTime;     // local variable to updated time
-        min = ((int)timer / 60).ToString();     // calculates minutes
-        sec = (timer % 60).ToString("f0");      // calculates seconds
 
-        timeText.text = "Elapsed Time: " + min + ":" + sec;     // update UI time text
-    }
+        if (SceneManager.GetActiveScene().name == "LevelOne"){
+            string min = TimeKeeper.instance.min1;
+            string sec = TimeKeeper.instance.sec1;
+            timeText.text = "Elapsed Time: " + min + ":" + sec;     // update UI time text
+        } else if (SceneManager.GetActiveScene().name == "LevelTwo"){
+            string min = TimeKeeper.instance.min2;
+            string sec = TimeKeeper.instance.sec2;
+            timeText.text = "Elapsed Time: " + min + ":" + sec; 
+        }
+        Debug.Log("timer2: " + TimeKeeper.instance.timer2);
+        Debug.Log("realtime: " + Time.time);
+        Debug.Log("starting time: " + TimeKeeper.instance.startingTime2);
+    }        
+
 
     void FixedUpdate()
     {
@@ -202,17 +220,5 @@ public class PlayerController : MonoBehaviour
 
     void RestartLevel(){
         SceneManager.LoadScene(currentSceneName);
-    }
-
-    void EndLevel(){
-
-        //update TimeKeeper variables
-        
-        if (SceneManager.GetActiveScene().name == "LevelOne"){
-            TimeKeeper.instance.level1Time = timer;
-        } else if (SceneManager.GetActiveScene().name == "LevelTwo"){
-            TimeKeeper.instance.level2Time = timer;
-            TimeKeeper.instance.totalTime = TimeKeeper.instance.level1Time + TimeKeeper.instance.level2Time;
-        }
     }
 }
