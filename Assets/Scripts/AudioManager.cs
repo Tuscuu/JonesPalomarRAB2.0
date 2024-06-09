@@ -8,13 +8,11 @@ public class AudioManager : MonoBehaviour
     static AudioManager instance;
 
     void Awake() {
-        if (instance != null) {     //if there is already another music object, destroy it. 
-            Destroy(gameObject);
-        }
-
-        else {
-            instance = this;        //otherwise, the instance is this music object 
+        if (instance == null){
+            instance = this;
             DontDestroyOnLoad(gameObject);
+        } else if (instance!= this){
+            Destroy(gameObject);
         }
     }
 

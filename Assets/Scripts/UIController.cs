@@ -6,10 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
 
+    public static UIController instance; 
+    
+    public GameObject instructions;
+    public GameObject controls;
     public TimeKeeper timeKeeper; //singleton for recording time
     public TMP_Text level1TimeText;
     public TMP_Text level2TimeText;
     public TMP_Text totalTimeText;
+
+    void Awake()
+    {
+        if (instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else if (instance!= this){
+            Destroy(gameObject);
+        }
+    }
 
 	public void OnClickQuitButton()
     {
@@ -24,6 +38,10 @@ public class UIController : MonoBehaviour {
             SceneManager.LoadScene("LevelTwo");
         } 
         
+    }
+
+    public void GoToHelp(){
+        SceneManager.LoadScene("HELP");
     }
 
     public void Start(){
@@ -46,5 +64,22 @@ public class UIController : MonoBehaviour {
         }
     }
 
+    public void InstructionsWindow(){
+        if (instructions.activeSelf == false){
+            instructions.SetActive(true);
+        } else if (instructions.activeSelf == true){
+            instructions.SetActive(false);
+        }
+    }
 
+    public void ControlsWindow(){
+        if (controls.activeSelf == false){
+            controls.SetActive(true);
+        } else if (controls.activeSelf == true){
+            controls.SetActive(false);
+        }
+    }
 }
+
+
+
