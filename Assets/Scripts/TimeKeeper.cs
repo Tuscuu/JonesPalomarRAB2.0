@@ -23,6 +23,9 @@ public class TimeKeeper : MonoBehaviour
     public float level1Time;
     public float level2Time;
     public float totalTime;
+    public string level1TimeText;
+    public string level2TimeText;
+    public string totalTimeText;
 
     void Awake()    //singleton mortality
     {
@@ -49,13 +52,21 @@ public class TimeKeeper : MonoBehaviour
     }
 
     public void Level1Done(){
-        level1Time = timer1;
+        level1TimeText = min1 + ":" + sec1;
         level1 = false;
     }
 
     public void Level2Done(){
-        level2Time = timer2;
+        level2TimeText = min2 + ":" + sec2;
         level2 = false;
+    }
+
+    public void calculateTimes(){
+        totalTime = level1Time + level2Time;
+        string min = ((int)timer2 / 60).ToString();
+        string sec = (timer2 % 60).ToString("f0");
+        totalTimeText = min + ":" + sec; 
+
     }
 
 }

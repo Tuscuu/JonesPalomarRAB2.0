@@ -11,15 +11,9 @@ public class WINSceneManager : MonoBehaviour
     public TMP_Text totalText;
     
 private void Start() {
-    Debug.Log("set result times initiated");    
-
-    UIController.instance.SetResultTimes();
-}
-
-    public void ConnectTexts(){ //connect scene TMP_Texts to the TimeKeeper
-        Debug.Log("attempting to connect texts");
-        UIController.instance.level1TimeText = level1Text;
-        UIController.instance.level2TimeText = level2Text;
-        UIController.instance.totalTimeText = totalText;
-    } 
+    TimeKeeper.instance.calculateTimes();
+    level1Text.text = TimeKeeper.instance.level1TimeText;
+    level2Text.text = TimeKeeper.instance.level2TimeText;
+    totalText.text = TimeKeeper.instance.totalTimeText;
+    }
 }

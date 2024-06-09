@@ -51,29 +51,6 @@ public class UIController : MonoBehaviour {
         SceneManager.LoadScene("HELP");
     }
 
-    public void SetResultTimes(){
-        Debug.Log("set result times method initiated");
-        if (SceneManager.GetActiveScene().name == "WIN"){
-
-            WINSceneManager.instance.ConnectTexts(); //connect texts from WIN scene manager
-
-            string min1 = ((int)TimeKeeper.instance.level1Time / 60).ToString();     // calculates minutes
-            string sec1 = (TimeKeeper.instance.level1Time % 60).ToString("f0");      // calculates seconds
-
-        level1TimeText.text = "Elapsed Time: " + min1 + ":" + sec1;     // update level 1 stored time
-
-            string min2 = ((int)TimeKeeper.instance.level2Time / 60).ToString();     // calculates minutes
-            string sec2 = (TimeKeeper.instance.level2Time % 60).ToString("f0");      // calculates seconds
-
-        level2TimeText.text = "Elapsed Time: " + min2 + ":" + sec2;     // update level 1 stored time
-
-            string minTotal = ((int)TimeKeeper.instance.totalTime / 60).ToString();     // calculates minutes
-            string secTotal = (TimeKeeper.instance.totalTime % 60).ToString("f0");      // calculates seconds
-
-        totalTimeText.text = "Elapsed Time: " + minTotal + ":" + secTotal;     // update level 1 stored time
-
-        }
-    }
 }
 
 
