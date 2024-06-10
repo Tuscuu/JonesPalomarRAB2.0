@@ -318,9 +318,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1072591334547768908, guid: 4b31edee4fa16f741b5ea7af528a917b,
+      - m_Target: {fileID: 3902253171903702899, guid: 09778175a0ed02b48958a95e933d25d9,
           type: 3}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_TargetAssemblyTypeName: TimeKeeper, Assembly-CSharp
         m_MethodName: OnClickQuitButton
         m_Mode: 1
         m_Arguments:
@@ -1095,12 +1095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d2de16a11b30146b0c4174c745bde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructions: {fileID: 0}
-  controls: {fileID: 0}
   timeKeeper: {fileID: 0}
-  level1TimeText: {fileID: 0}
-  level2TimeText: {fileID: 0}
-  totalTimeText: {fileID: 0}
+  lvlwin: 0
 --- !u!4 &195021742
 Transform:
   m_ObjectHideFlags: 0
@@ -4834,9 +4830,6 @@ MonoBehaviour:
   countText: {fileID: 929672227}
   winText: {fileID: 60432072}
   timeText: {fileID: 1081547406}
-  startingTime: 0
-  min: 
-  sec: 
   coinSFX: {fileID: 8300000, guid: ab1859cbda5759844b7c967242766700, type: 3}
   cameraCon: {fileID: 2132230650}
   playerInZone1: 0
@@ -6064,16 +6057,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4076374993998642974, guid: 216ba9ef2de265b49ae7a883ff94f9f6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076374993998642974, guid: 216ba9ef2de265b49ae7a883ff94f9f6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 720
-      objectReference: {fileID: 0}
     - target: {fileID: 7678506214157219964, guid: 216ba9ef2de265b49ae7a883ff94f9f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6361,4 +6344,3 @@ SceneRoots:
   - {fileID: 1212693394}
   - {fileID: 2117485832}
   - {fileID: 903346594012440596}
-
