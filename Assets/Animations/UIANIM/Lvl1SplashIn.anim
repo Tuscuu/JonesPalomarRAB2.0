@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lvl1Trans
+  m_Name: Lvl1SplashIn
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -23,45 +23,45 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 721.792
-        inSlope: 36.65343
-        outSlope: 36.65343
-        tangentMode: 0
+        value: 720
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.22990365
-      - serializedVersion: 3
-        time: 1.4166666
-        value: 13.8745365
-        inSlope: -3135.5803
-        outSlope: -3135.5803
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.03378035
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.3666667
+        value: 0
+        inSlope: -1335.5618
+        outSlope: 2482.4072
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: 0.11846598
+        outWeight: 0.7167158
       - serializedVersion: 3
         time: 1.5
-        value: 13.8745365
-        inSlope: -3135.5803
-        outSlope: -3135.5803
-        tangentMode: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0.03378035
+        inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.55
-        value: 13.8745365
-        inSlope: -3135.5803
-        outSlope: -3135.5803
+        time: 1.6
+        value: 0
+        inSlope: -526.20966
+        outSlope: -526.20966
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.03378035
+        inWeight: 1
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Canvas/Image
+    path: SplashScreenTrans/Lvl1Splash
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -74,7 +74,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 335570237
+      path: 1720944214
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -88,12 +88,12 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.55
+    m_StopTime: 1.6
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -110,45 +110,45 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 721.792
-        inSlope: 36.65343
-        outSlope: 36.65343
-        tangentMode: 0
+        value: 720
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.22990365
-      - serializedVersion: 3
-        time: 1.4166666
-        value: 13.8745365
-        inSlope: -3135.5803
-        outSlope: -3135.5803
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.03378035
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.3666667
+        value: 0
+        inSlope: -1335.5618
+        outSlope: 2482.4072
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: 0.11846598
+        outWeight: 0.7167158
       - serializedVersion: 3
         time: 1.5
-        value: 13.8745365
-        inSlope: -3135.5803
-        outSlope: -3135.5803
-        tangentMode: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0.03378035
+        inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.55
-        value: 13.8745365
-        inSlope: -3135.5803
-        outSlope: -3135.5803
+        time: 1.6
+        value: 0
+        inSlope: -526.20966
+        outSlope: -526.20966
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.03378035
+        inWeight: 1
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Canvas/Image
+    path: SplashScreenTrans/Lvl1Splash
     classID: 224
     script: {fileID: 0}
     flags: 0
