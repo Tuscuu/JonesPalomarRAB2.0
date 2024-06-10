@@ -71,9 +71,9 @@ public class PlayerController : MonoBehaviour
             string sec = TimeKeeper.instance.sec2;
             timeText.text = "Elapsed Time: " + min + ":" + sec; 
         }
-        Debug.Log("timer2: " + TimeKeeper.instance.timer2);
+       /* Debug.Log("timer2: " + TimeKeeper.instance.timer2);
         Debug.Log("realtime: " + Time.time);
-        Debug.Log("starting time: " + TimeKeeper.instance.startingTime2);
+        Debug.Log("starting time: " + TimeKeeper.instance.startingTime2);*/ // off for now
         if (Input.GetKeyDown(KeyCode.U)) //Debug Option
         {
             count += 10;

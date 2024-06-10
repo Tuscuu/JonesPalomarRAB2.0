@@ -21,6 +21,11 @@ public class SceneTransitionator : MonoBehaviour
             transition();
             TimeKeeper.instance.lvlwin = false;
         }*/
+       if (SceneManager.GetActiveScene().name == "LevelTwo") 
+        {
+            transitionator.SetBool("InLevels", true);
+            Debug.Log("In Levels should be true");
+        }
     }
     public void transition(int index)
     {
@@ -32,17 +37,26 @@ public class SceneTransitionator : MonoBehaviour
     {
         if (index == 2)
         {
+            
+            Debug.Log("Enter Transition");
             transitionator.SetTrigger("Lvl1Complete"); //brings the stinger down
+            Debug.Log("first transition");
             yield return new WaitForSeconds(transitionTime);
+         /*   transitionator.SetBool("InLevels", true);
+            Debug.Log("In Levels should be true");*/
             transitionator.SetTrigger("SceneisTrans"); // plays the wipe in 
             yield return new WaitForSeconds(transitionTime); // pause
             SceneManager.LoadScene(index); // plays wipe out when loaded
-            transitionator.SetTrigger("Lvl2Start");
+           /* yield return new WaitForSeconds(1f);
+            transitionator.SetBool("InLevels", true);
+            Debug.Log("In Levels should be true");*/
         }
         else
         {
-            SceneManager.LoadScene(index);
             
+            SceneManager.LoadScene(index);
+         /*   transitionator.SetBool("InLevels", true);
+            Debug.Log("In Levels should be true");*/
         }
     }
 }
