@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public TMP_Text countText;
     public TMP_Text winText;
     public TMP_Text timeText;  //  variable to display the timer text in Unity
+    public UIController controller; // Grabbing the UI Controller to access Next Level function
     //public float startingTime;  // variable to hold the game's starting time
     //public string min;
     //public string sec;
@@ -73,6 +74,10 @@ public class PlayerController : MonoBehaviour
         Debug.Log("timer2: " + TimeKeeper.instance.timer2);
         Debug.Log("realtime: " + Time.time);
         Debug.Log("starting time: " + TimeKeeper.instance.startingTime2);
+        if (Input.GetKeyDown("u")) //Debug Option
+        {
+            count += 10;
+        }
     }        
 
 
@@ -206,9 +211,9 @@ public class PlayerController : MonoBehaviour
             timeText.color = Color.green;  // changes timer's color
             winText.text = "You win!";
             speed = 0;
-
-
-            SceneManager.LoadScene("WIN");
+            controller.WinLevel(); //Broadcasts to relevant scripts
+            
+           
 
         }
     }

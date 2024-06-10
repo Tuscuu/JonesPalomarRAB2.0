@@ -13,7 +13,7 @@ public class UIController : MonoBehaviour {
     public TMP_Text level1TimeText;
     public TMP_Text level2TimeText;
     public TMP_Text totalTimeText;
-
+    public bool lvlwin; // used to send signal to SceneTransitionator
     void Awake()
     {
         if (instance == null){
@@ -30,7 +30,11 @@ public class UIController : MonoBehaviour {
         print("Quit button was clicked");
         Application.Quit();
     }
+    public void WinLevel() // A little bit roundabout but this is what is called in PlayerController
+    {                       // broadcast to other scripts the level is done, because I didn't want to
+        lvlwin = true;                      // deal with passing in another public object
 
+    }
     public void NextLevel(){
         if (SceneManager.GetActiveScene().name == "MainMenu"){
             SceneManager.LoadScene("LevelOne");

@@ -207,9 +207,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.124930084
-  m_TransitionOffset: 0.37520942
-  m_ExitTime: 1.0002097
+  m_TransitionDuration: 0.18523157
+  m_TransitionOffset: 0
+  m_ExitTime: 0.90975744
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -222,7 +222,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: SceneisTrans
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7951947676340404913}
   m_Solo: 0

@@ -1095,12 +1095,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d2de16a11b30146b0c4174c745bde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructions: {fileID: 0}
-  controls: {fileID: 0}
   timeKeeper: {fileID: 0}
   level1TimeText: {fileID: 0}
   level2TimeText: {fileID: 0}
   totalTimeText: {fileID: 0}
+  lvlwin: 0
 --- !u!4 &195021742
 Transform:
   m_ObjectHideFlags: 0
@@ -4834,9 +4833,7 @@ MonoBehaviour:
   countText: {fileID: 929672227}
   winText: {fileID: 60432072}
   timeText: {fileID: 1081547406}
-  startingTime: 0
-  min: 
-  sec: 
+  controller: {fileID: 0}
   coinSFX: {fileID: 8300000, guid: ab1859cbda5759844b7c967242766700, type: 3}
   cameraCon: {fileID: 2132230650}
   playerInZone1: 0
@@ -6064,6 +6061,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 564102682336130830, guid: 216ba9ef2de265b49ae7a883ff94f9f6,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 195021741}
     - target: {fileID: 4076374993998642974, guid: 216ba9ef2de265b49ae7a883ff94f9f6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6361,4 +6363,3 @@ SceneRoots:
   - {fileID: 1212693394}
   - {fileID: 2117485832}
   - {fileID: 903346594012440596}
-
