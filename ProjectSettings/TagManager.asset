@@ -17,6 +17,7 @@ TagManager:
   - Machine
   - Smoke
   - Platform
+  - Transition1
   layers:
   - Default
   - TransparentFX

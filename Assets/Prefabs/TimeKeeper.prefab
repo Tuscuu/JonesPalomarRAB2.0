@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2731996376942003645}
-  - component: {fileID: 4102878702270007577}
+  - component: {fileID: 3902253171903702899}
   m_Layer: 0
   m_Name: TimeKeeper
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4102878702270007577
+--- !u!114 &3902253171903702899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,6 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2d01625a341aa4283974658db78b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer1: 0
+  timer2: 0
+  startingTime1: 0
+  startingTime2: 0
+  min1: 
+  sec1: 
+  min2: 
+  sec2: 
+  level1: 0
+  level2: 0
+  lvlwin: 0
   level1Time: 0
   level2Time: 0
   totalTime: 0
+  level1TimeText: 
+  level2TimeText: 
+  totalTimeText: 
