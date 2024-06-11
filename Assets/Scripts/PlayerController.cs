@@ -81,11 +81,11 @@ public class PlayerController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "LevelOne"){
             string min = TimeKeeper.instance.min1;
             string sec = TimeKeeper.instance.sec1;
-            timeText.text = "Elapsed Time: " + min + ":" + sec;     // update UI time text
+            timeText.text = "Time: " + min + ":" + sec;     // update UI time text
         } else if (SceneManager.GetActiveScene().name == "LevelTwo"){
             string min = TimeKeeper.instance.min2;
             string sec = TimeKeeper.instance.sec2;
-            timeText.text = "Elapsed Time: " + min + ":" + sec; 
+            timeText.text =  "Time: " + min + ":" + sec; 
         }
        /* Debug.Log("timer2: " + TimeKeeper.instance.timer2);
         Debug.Log("realtime: " + Time.time);
@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
+        countText.text = count.ToString() + " / 10";
         if(count >= 9)
         {
             gameOver = true; // returns true value to signal game is over
