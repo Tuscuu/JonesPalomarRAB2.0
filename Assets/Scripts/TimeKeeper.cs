@@ -28,6 +28,7 @@ public class TimeKeeper : MonoBehaviour
     public string level1TimeText;
     public string level2TimeText;
     public string totalTimeText;
+    public bool checkpoint;
 
     void Awake()
     {

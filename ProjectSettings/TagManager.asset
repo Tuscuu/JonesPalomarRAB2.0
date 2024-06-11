@@ -18,6 +18,8 @@ TagManager:
   - Smoke
   - Platform
   - Transition1
+  - SafeZone
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

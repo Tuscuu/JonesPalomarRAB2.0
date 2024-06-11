@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     private bool gameOver; //  bool to define game state on or off.
     string currentSceneName;
+    public GameObject respawnPoint;
     
     //private float timer;
 
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip explosion; 
     public GameObject destroyableMachine;
     public GameObject destroyableSmoke;
+    public GameObject destroyableCollision;
     private bool machineDestroyed;
     private bool onfire = false;
 
@@ -63,6 +65,10 @@ public class PlayerController : MonoBehaviour
         } else if (SceneManager.GetActiveScene().name == "LevelTwo"){
             TimeKeeper.instance.startingTime2 = Time.time;
             TimeKeeper.instance.level2 = true;
+            if (TimeKeeper.instance.checkpoint){
+                transform.position = respawnPoint.transform.position;
+                count = 6;
+            }
         }
 
     }
@@ -122,6 +128,10 @@ public class PlayerController : MonoBehaviour
     {
         //This event/function handles trigger events (collsion between a game object with a rigid body)
    
+        if (other.gameObject.tag == "Checkpoint"){
+            TimeKeeper.instance.checkpoint = true;
+        }
+
         if (other.gameObject.tag == "PickUp")
         {
             other.gameObject.SetActive(false);
@@ -242,6 +252,7 @@ public class PlayerController : MonoBehaviour
     public void DestroyMachine(){
         destroyableMachine.SetActive(false);
         destroyableSmoke.SetActive(false);
+        destroyableCollision.SetActive(false);
     } 
 
     public void RestartLevel(){
