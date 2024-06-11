@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentSceneName = SceneManager.GetActiveScene().name;
         rb = GetComponent<Rigidbody>();
         count = 0; 
         SetCountText();
@@ -135,7 +136,6 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("DeathZone"))
         {
-            currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
         }
 
