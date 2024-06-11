@@ -5,22 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    /*static AudioManager instance;*/
+    static AudioManager instance;
 
 
 
-  /*  void Awake() {
+    void Awake() {
         if (instance == null){
             instance = this;
             DontDestroyOnLoad(gameObject);
         } else if (instance!= this){
             Destroy(gameObject);
         }
-    }*/
-
+    }
+}
+/*
     void Update(){                      //testing between scenes; quick switch 
         // FUNCTIONALITY MOVED TO TIMEKEEPER
-   /*     if (Input.GetKeyDown("0")){
+        if (Input.GetKeyDown("0")){
             SceneManager.LoadScene("MainMenu");
             endTimers();
         }
@@ -40,10 +41,9 @@ public class AudioManager : MonoBehaviour
         else if (Input.GetKeyDown("4")){
             SceneManager.LoadScene("HELP");
             endTimers();
-        }*/
-    }
+        }
 
-   /* public void endTimers(){
+    public void endTimers(){
         if (SceneManager.GetActiveScene().name == "LevelOne"){
             TimeKeeper.instance.Level1Done();
         } else if (SceneManager.GetActiveScene().name == "LevelTwo"){
@@ -51,4 +51,4 @@ public class AudioManager : MonoBehaviour
         }
     }*/
 
-}
+

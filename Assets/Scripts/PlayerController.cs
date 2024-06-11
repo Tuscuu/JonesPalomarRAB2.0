@@ -13,7 +13,10 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public TMP_Text countText;
     public TMP_Text winText;
-    public TMP_Text timeText;  //  variable to display the timer text in Unity
+    public TMP_Text timeText;  
+    public GameObject fireAnimation;
+
+    //  variable to display the timer text in Unity
    /* public UIController controller;*/ // Grabbing the UI Controller to access Next Level function-Trying referencing it differently
     //public float startingTime;  // variable to hold the game's starting time
     //public string min;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     private bool gameOver; //  bool to define game state on or off.
     string currentSceneName;
+    
     //private float timer;
 
     // Audio
@@ -34,6 +38,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip explosion; 
     public GameObject destroyableMachine;
     public GameObject destroyableSmoke;
+    private bool machineDestroyed;
+    private bool onfire = false;
 
 
     void Start()
@@ -44,6 +50,10 @@ public class PlayerController : MonoBehaviour
         winText.text = "";
         gameOver = false;
 
+        if (fireAnimation){
+            fireAnimation.SetActive(false);
+        }
+
         audioSource = GetComponent<AudioSource>();  // access the audio source component of player
 
         if (SceneManager.GetActiveScene().name == "LevelOne"){
@@ -53,7 +63,6 @@ public class PlayerController : MonoBehaviour
             TimeKeeper.instance.startingTime2 = Time.time;
             TimeKeeper.instance.level2 = true;
         }
-
 
     }
             
@@ -99,6 +108,10 @@ public class PlayerController : MonoBehaviour
         } else {
             Vector3 movement = new Vector3(moveVertical, 0.0f, -moveHorizontal);
             rb.AddForce(movement * speed);
+        }
+
+        if (onfire){
+            fireAnimation.transform.position = transform.position;
         }
         
     }
@@ -165,21 +178,28 @@ public class PlayerController : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("Smoke")){
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             destroyableSmoke.GetComponent<AudioSource>().Play();
+            onfire = true;
+            fireAnimation.SetActive(true);
+            
             Invoke("RestartLevel", 1.5f);
         }
 
         if (other.gameObject.CompareTag("Machine")){
-            Debug.Log("hit machine!");
             if (transform.localScale.x >= 2){
-                destroyableMachine.gameObject.GetComponent<AudioSource>().Play();
-                Invoke("DestroyMachine", 1.3f);
+                if (!machineDestroyed){
+                    destroyableMachine.gameObject.GetComponent<AudioSource>().Play();
+                    Invoke("DestroyMachine", 1.3f);
+                    machineDestroyed = true;
+                }
+                
             }
         }
 
 
         if (other.gameObject.CompareTag("Spider")){
+            Debug.Log("hit spider");
             gameObject.SetActive(false);
             Invoke("RestartLevel", 0.7f);
         }
@@ -196,10 +216,10 @@ public class PlayerController : MonoBehaviour
 
         }
         
-        /*
+        
         if (other.gameObject.CompareTag("Platform")){
             transform.parent = null;
-        }*/
+        }
     }
 
 
@@ -219,12 +239,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void DestroyMachine(){
+    public void DestroyMachine(){
         destroyableMachine.SetActive(false);
         destroyableSmoke.SetActive(false);
     } 
 
-    void RestartLevel(){
+    public void RestartLevel(){
+        Debug.Log("restarting level");
         SceneManager.LoadScene(currentSceneName);
     }
 }
