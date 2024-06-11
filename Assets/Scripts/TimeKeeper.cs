@@ -12,13 +12,14 @@ public class TimeKeeper : MonoBehaviour
     //variables for calculation
     public float timer1;
     public float timer2;
+    public float totaltime;
     public float startingTime1;  // variable to hold the game's starting time
     public float startingTime2;
     public string min1;
     public string sec1;
     public string min2;
     public string sec2;
-    public bool level1 = false; //for camera?
+    public bool level1 = false; //for camera? //for timers
     public bool level2 = false;
     public bool lvlwin; // bool to tell scenetransitionator to start its thing
     public float level1Time;
@@ -80,6 +81,7 @@ public class TimeKeeper : MonoBehaviour
             /*LevelDone(SceneManager.GetActiveScene().buildIndex);*/
             SceneManager.LoadScene("WIN");
             /*endTimers();*/ // End Timers on Win, Help, and Main menu did/do nothing as they dont satisfy the if else conditions
+            //endtimers was a method setup to be used in the future 
         }
         else if (Input.GetKeyDown("4"))
         {
@@ -108,6 +110,7 @@ public class TimeKeeper : MonoBehaviour
             /*SceneManager.LoadScene("WIN");*/
             LevelProgress();
             Debug.Log("Lvl 2 Done");
+            calculateTimes();
         }
         else if (SceneManager.GetActiveScene().name == "HELP")
         {
@@ -134,12 +137,14 @@ public class TimeKeeper : MonoBehaviour
         transitionator = GameObject.FindGameObjectWithTag("Transition1");
         transitionator.GetComponent<SceneTransitionator>().transition(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    
+    /*
     public void Level2Done()
     {
         level2TimeText = min2 + ":" + sec2;
         level2 = false;
     }
-   /* public void endTimers()
+    public void endTimers()
     {
         if (SceneManager.GetActiveScene().name == "LevelOne")
         {
@@ -153,9 +158,9 @@ public class TimeKeeper : MonoBehaviour
 
     public void calculateTimes()
     {
-        totalTime = level1Time + level2Time;
-        string min = ((int)timer2 / 60).ToString();
-        string sec = (timer2 % 60).ToString("f0");
+        totalTime = timer1 + timer2;
+        string min = ((int)totalTime / 60).ToString();
+        string sec = (totalTime % 60).ToString("f0");
         totalTimeText = min + ":" + sec; 
 
     }
